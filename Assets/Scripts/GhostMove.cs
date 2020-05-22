@@ -12,7 +12,7 @@ public class GhostMove : MonoBehaviour {
 
 	// direction is set from the AI component
 	public Vector3 _direction;
-	public Vector3 direction 
+	public Vector3 direction
 	{
 		get
 		{
@@ -25,7 +25,7 @@ public class GhostMove : MonoBehaviour {
 			Vector3 pos = new Vector3((int)transform.position.x, (int)transform.position.y, (int)transform.position.z);
 			waypoint = pos + _direction;
 			//Debug.Log ("waypoint (" + waypoint.position.x + ", " + waypoint.position.y + ") set! _direction: " + _direction.x + ", " + _direction.y);
-		
+
 		}
 	}
 
@@ -58,7 +58,7 @@ public class GhostMove : MonoBehaviour {
 	void Start()
 	{
 	    _gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
-        _toggleInterval = _gm.scareLength * 0.33f * 0.20f;  
+        _toggleInterval = _gm.scareLength * 0.33f * 0.20f;
 		InitializeGhost();
 	}
 
@@ -116,15 +116,15 @@ public class GhostMove : MonoBehaviour {
         timeToEndWait = Time.time + waitLength + GUINav.initialDelay;
         InitializeWaypoints(state);
     }
-	
+
 
     private void InitializeWaypoints(State st)
     {
         //--------------------------------------------------
         // File Format: Init and Scatter coordinates separated by empty line
-        // Init X,Y 
         // Init X,Y
-        // 
+        // Init X,Y
+        //
         // Scatter X,Y
         // Scatter X,Y
 
@@ -183,7 +183,7 @@ public class GhostMove : MonoBehaviour {
 10 5
 10 8";
             break;
-        
+
         }
 
         //-------------------------------------------------
@@ -270,7 +270,7 @@ public class GhostMove : MonoBehaviour {
 
             case "pinky":
                 return new Vector3(14.5f, 17f, 0f);
-            
+
             case "inky":
                 return new Vector3(16.5f, 17f, 0f);
 
@@ -302,7 +302,7 @@ public class GhostMove : MonoBehaviour {
 		        InitializeGhost(_startPos);
                 pacman.UpdateScore();
 		    }
-		       
+
 		    else
 		    {
 		        _gm.LoseLife();
@@ -393,7 +393,7 @@ public class GhostMove : MonoBehaviour {
 			Vector2 p = Vector2.MoveTowards(transform.position, waypoint, speed);
 			GetComponent<Rigidbody2D>().MovePosition(p);
 		}
-		
+
 		// if at waypoint, run AI run away logic
 		else GetComponent<AI>().RunLogic();
 
