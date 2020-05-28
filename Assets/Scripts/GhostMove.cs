@@ -286,6 +286,7 @@ public class GhostMove : MonoBehaviour {
 	void animate()
 	{
 		Vector3 dir = waypoint - transform.position;
+		transform.Rotate (0,0,50*Time.deltaTime); //rotates 50 degrees per second around z axis
 		GetComponent<Animator>().SetFloat("DirX", dir.x);
 		GetComponent<Animator>().SetFloat("DirY", dir.y);
 		GetComponent<Animator>().SetBool("Run", false);
